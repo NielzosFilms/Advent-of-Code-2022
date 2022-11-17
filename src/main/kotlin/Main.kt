@@ -1,7 +1,29 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+import helpers.Logger
+import puzzle_days.Day1
+import puzzle_days.PuzzleDay
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+val days: List<PuzzleDay> = listOf(
+    Day1()
+)
+
+val log = Logger()
+
+fun main(args: Array<String>) {
+    // Run a single day if an argument is given
+    if (args.isNotEmpty()) {
+        val singleDay: Int? = args.first().toIntOrNull()
+        if (singleDay == null || singleDay <= 0 || singleDay > days.size) {
+            log.error("Failed to find PuzzleDay with index [${args.first()}]")
+            return
+        }
+        days[singleDay - 1].main()
+        return
+    }
+
+    // If no argument is given just run all the days
+    days.forEachIndexed { index, puzzleDay ->
+        log.divider("Day ${index + 1}")
+        puzzleDay.main()
+        log.divider()
+    }
 }
