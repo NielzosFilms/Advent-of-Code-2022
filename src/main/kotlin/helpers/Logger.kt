@@ -12,10 +12,10 @@ class Logger {
     private val purple = "\u001B[35m"
     private val cyan = "\u001B[36m"
 
-    fun info(msg: String) = printToConsole("${blue}INFO$reset", msg)
-    fun debug(msg: String) = printToConsole("${purple}DEBUG$reset", msg)
-    fun warn(msg: String) = printToConsole("${cyan}WARN$reset", msg)
-    fun error(msg: String) = printToConsole("${red}ERROR$reset", msg)
+    fun info(msg: Any) = printToConsole("${blue}INFO$reset", msg.toString())
+    fun debug(msg: Any) = printToConsole("${purple}DEBUG$reset", msg.toString())
+    fun warn(msg: Any) = printToConsole("${cyan}WARN$reset", msg.toString())
+    fun error(msg: Any) = printToConsole("${red}ERROR$reset", msg.toString())
 
     fun divider(title: String = "") {
         val formattedTitle = if (title.isNotEmpty()) "$title " else ""
@@ -34,7 +34,7 @@ class Logger {
         val time = getTime()
         val calledClass = getCalledClass()
 
-        val formatted = String.format("%s %-40s %-16s", "[$cyan$time$reset]", "[$yellow$calledClass$reset]", "[$level]")
+        val formatted = String.format("%s %-30s %-16s", "[$cyan$time$reset]", "[$yellow$calledClass$reset]", "[$level]")
         println("$formatted $green>$reset $msg")
     }
 }
