@@ -1,4 +1,4 @@
-package puzzle_days
+package puzzledays
 
 class Day1 : PuzzleDay(1) {
     private val elfCalories = mutableListOf<Int>()
@@ -15,6 +15,6 @@ class Day1 : PuzzleDay(1) {
         log.info("Answer puzzle 1: " + elfCalories.max().toString())
 
         elfCalories.sortDescending()
-        log.debug("Answer puzzle 2: " + (elfCalories[0] + elfCalories[1] + elfCalories[2]))
+        log.info("Answer puzzle 2: " + (elfCalories[0] + elfCalories[1] + elfCalories[2]))
     }
 }

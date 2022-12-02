@@ -1,9 +1,11 @@
 import helpers.Logger
-import puzzle_days.Day1
-import puzzle_days.PuzzleDay
+import puzzledays.Day1
+import puzzledays.Day2
+import puzzledays.PuzzleDay
 
 val days: List<PuzzleDay> = listOf(
-    Day1()
+    Day1(),
+    Day2()
 )
 
 val log = Logger()
@@ -24,6 +26,5 @@ fun main(args: Array<String>) {
     days.forEachIndexed { index, puzzleDay ->
         log.divider("Day ${index + 1}")
         puzzleDay.main()
-        log.divider()
     }
 }

@@ -1,4 +1,4 @@
-package puzzle_days
+package puzzledays
 
 import helpers.Logger
 import java.io.File
