@@ -1,11 +1,13 @@
 import helpers.Logger
 import puzzledays.Day1
 import puzzledays.Day2
+import puzzledays.Day3
 import puzzledays.PuzzleDay
 
 val days: List<PuzzleDay> = listOf(
     Day1(),
-    Day2()
+    Day2(),
+    Day3()
 )
 
 val log = Logger()
